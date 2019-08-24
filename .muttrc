@@ -1,0 +1,43 @@
+set spoolfile="imaps://USERNAME:PASSWORD@MAILSERVER/INBOX"
+set sort = 'reverse-date'
+set editor = vim
+set mail_check = "5"
+set date_format="%Y.%m.%d %I:%M"
+
+set smtp_url = "smtp://USERNAME@MAILSERVER:PORT"
+set smtp_pass = "PASSWORD"
+
+set record = "imaps://USERNAME@MAILSERVER/Sent"
+
+bind index "$" imap-fetch-mail 
+
+set from = "NAME <USERNAME>"
+set use_from
+set reverse_name
+
+set charset="UTF-8"
+set send_charset="utf-8"
+
+set assumed_charset="UTF-8"
+set charset="UTF-8"
+set from_chars=""
+set newsgroups_charset="utf-8"
+set send_charset="utf-8"
+
+set sleep_time = 0
+
+bind pager <up> previous-line #scroll inside the message rather than the index
+bind pager <down> next-line
+
+bind index,pager g noop
+macro index   gi "<change-folder>imaps://USERNAME:PASSWORD@MAILSERVER/INBOX<Enter>"              "go to Inbox"
+macro browser gi "<exit><Enter><change-folder>imaps://USERNAME:PASSWORD@MAILSERVER/INBOX<Enter>" "go to Inbox"
+macro pager   gi "<exit><change-folder>imaps://USERNAME:PASSWORD@MAILSERVER/INBOX<Enter>"        "go to Inbox"
+
+set imap_check_subscribed = "yes"
+
+color index brightyellow black "~N"
+color index_author brightred black "~N"
+color index_subject brightcyan black "~N"
+
+
